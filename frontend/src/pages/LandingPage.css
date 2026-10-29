@@ -1,0 +1,331 @@
+/* ==========================================================================
+   AURA 3D OBSIDIAN LANDING EXPERIENCE — LUXURY FINTECH 3D STYLESHEET
+   ========================================================================== */
+
+/* 3D Master Perspective Viewport */
+.hero-3d-stage {
+  perspective: 1400px;
+  perspective-origin: 50% 35%;
+  transform-style: preserve-3d;
+  position: relative;
+  width: 100%;
+}
+
+/* Overhead Volumetric Ambient Spotlights */
+.volumetric-spotlight {
+  position: absolute;
+  top: -120px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 800px;
+  height: 500px;
+  background: radial-gradient(ellipse 65% 50% at 50% 20%, rgba(255, 255, 255, 0.12) 0%, rgba(255, 255, 255, 0.02) 50%, transparent 80%);
+  filter: blur(40px);
+  pointer-events: none;
+  z-index: 1;
+}
+
+/* 3D Horizon Scanning Grid Floor */
+.horizon-grid-viewport {
+  position: absolute;
+  bottom: -60px;
+  left: -20%;
+  right: -20%;
+  height: 340px;
+  perspective: 500px;
+  overflow: hidden;
+  pointer-events: none;
+  mask-image: linear-gradient(to top, rgba(0, 0, 0, 0.8) 0%, transparent 95%);
+  -webkit-mask-image: linear-gradient(to top, rgba(0, 0, 0, 0.8) 0%, transparent 95%);
+  z-index: 2;
+}
+
+.horizon-grid-mesh {
+  position: absolute;
+  inset: -50%;
+  background-image: 
+    linear-gradient(rgba(255, 255, 255, 0.05) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.05) 1px, transparent 1px);
+  background-size: 48px 48px;
+  transform: rotateX(72deg) translateY(60px);
+  transform-origin: center center;
+  animation: gridDrive 20s linear infinite;
+}
+
+@keyframes gridDrive {
+  0% {
+    background-position: 0 0;
+  }
+  100% {
+    background-position: 0 48px;
+  }
+}
+
+/* ==========================================================================
+   3D DASHBOARD CHASSIS (ISOMETRIC TILT & DEPTH)
+   ========================================================================== */
+
+.dashboard-3d-chassis {
+  position: relative;
+  transform-style: preserve-3d;
+  background: linear-gradient(145deg, rgba(22, 22, 26, 0.94) 0%, rgba(10, 10, 12, 0.98) 100%);
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  border-radius: 24px;
+  box-shadow: 
+    0 40px 90px -25px rgba(0, 0, 0, 0.95),
+    0 0 50px rgba(255, 255, 255, 0.06),
+    inset 0 1px 1.5px rgba(255, 255, 255, 0.35),
+    inset 0 -2px 6px rgba(0, 0, 0, 0.8);
+  backdrop-filter: blur(28px);
+  -webkit-backdrop-filter: blur(28px);
+  transition: transform 0.25s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.35s ease;
+  will-change: transform;
+}
+
+.dashboard-3d-chassis:hover {
+  box-shadow: 
+    0 50px 110px -20px rgba(0, 0, 0, 0.98),
+    0 0 70px rgba(255, 255, 255, 0.1),
+    inset 0 1px 2px rgba(255, 255, 255, 0.5);
+}
+
+/* ==========================================================================
+   FLOATING 3D "TITANIUM OBSIDIAN" LUXURY FINTECH CARD
+   ========================================================================== */
+
+.titanium-card-3d {
+  position: absolute;
+  top: -45px;
+  right: -35px;
+  width: 290px;
+  height: 175px;
+  border-radius: 20px;
+  background: linear-gradient(135deg, #1c1c20 0%, #0d0d0f 50%, #161619 100%);
+  border: 1.5px solid rgba(255, 255, 255, 0.35);
+  box-shadow: 
+    0 30px 60px -15px rgba(0, 0, 0, 0.95),
+    0 0 35px rgba(255, 255, 255, 0.12),
+    inset 0 1px 2px rgba(255, 255, 255, 0.5),
+    inset 0 -2px 6px rgba(0, 0, 0, 0.8);
+  transform: translate3d(20px, -20px, 90px) rotateY(-18deg) rotateX(12deg) rotateZ(3deg);
+  transform-style: preserve-3d;
+  padding: 18px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  overflow: hidden;
+  z-index: 30;
+  animation: floatCard3D 6s ease-in-out infinite alternate;
+  will-change: transform;
+}
+
+/* Diagonal Holographic Sheen on Titanium Card */
+.titanium-card-3d::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    125deg,
+    rgba(255, 255, 255, 0.22) 0%,
+    transparent 42%,
+    rgba(255, 255, 255, 0.08) 60%,
+    transparent 100%
+  );
+  pointer-events: none;
+}
+
+@keyframes floatCard3D {
+  0% {
+    transform: translate3d(20px, -20px, 90px) rotateY(-18deg) rotateX(12deg) rotateZ(3deg);
+  }
+  100% {
+    transform: translate3d(20px, -36px, 120px) rotateY(-14deg) rotateX(8deg) rotateZ(1deg);
+  }
+}
+
+/* Card Smart Chip */
+.emv-chip {
+  width: 36px;
+  height: 26px;
+  border-radius: 6px;
+  background: linear-gradient(135deg, #d4af37 0%, #f3e5ab 50%, #aa7c11 100%);
+  border: 1px solid rgba(255, 255, 255, 0.4);
+  box-shadow: inset 0 1px 1px rgba(255, 255, 255, 0.6), 0 2px 4px rgba(0, 0, 0, 0.5);
+  position: relative;
+  overflow: hidden;
+}
+
+.emv-chip::after {
+  content: '';
+  position: absolute;
+  inset: 3px;
+  border: 1px solid rgba(0, 0, 0, 0.35);
+  border-radius: 3px;
+}
+
+/* ==========================================================================
+   FLOATING 3D METRIC WIDGETS
+   ========================================================================== */
+
+/* Top-Left Floating Live Wire Influx Card */
+.floating-widget-left {
+  position: absolute;
+  top: -25px;
+  left: -40px;
+  padding: 14px 18px;
+  border-radius: 18px;
+  background: rgba(18, 18, 22, 0.88);
+  border: 1px solid rgba(255, 255, 255, 0.24);
+  box-shadow: 
+    0 25px 50px -10px rgba(0, 0, 0, 0.9),
+    0 0 30px rgba(34, 197, 94, 0.12),
+    inset 0 1px 1px rgba(255, 255, 255, 0.3);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  transform: translate3d(-10px, -10px, 100px) rotateY(16deg) rotateX(-6deg);
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  z-index: 30;
+  animation: floatWidgetLeft 5.5s ease-in-out infinite alternate;
+  will-change: transform;
+}
+
+@keyframes floatWidgetLeft {
+  0% {
+    transform: translate3d(-10px, -10px, 100px) rotateY(16deg) rotateX(-6deg);
+  }
+  100% {
+    transform: translate3d(-10px, -24px, 125px) rotateY(12deg) rotateX(-2deg);
+  }
+}
+
+/* Bottom-Right Floating Threshold Guardrail Pill */
+.floating-widget-right {
+  position: absolute;
+  bottom: -25px;
+  right: -30px;
+  padding: 12px 18px;
+  border-radius: 16px;
+  background: rgba(18, 18, 22, 0.9);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  box-shadow: 
+    0 25px 50px -10px rgba(0, 0, 0, 0.9),
+    0 0 30px rgba(255, 255, 255, 0.08),
+    inset 0 1px 1px rgba(255, 255, 255, 0.25);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  transform: translate3d(10px, 10px, 85px) rotateY(-14deg) rotateX(10deg);
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  z-index: 30;
+  animation: floatWidgetRight 6.2s ease-in-out infinite alternate;
+  will-change: transform;
+}
+
+@keyframes floatWidgetRight {
+  0% {
+    transform: translate3d(10px, 10px, 85px) rotateY(-14deg) rotateX(10deg);
+  }
+  100% {
+    transform: translate3d(10px, 22px, 105px) rotateY(-10deg) rotateX(14deg);
+  }
+}
+
+/* ==========================================================================
+   3D GYROSCOPIC METALLIC RUPEE COIN
+   ========================================================================== */
+
+.gyro-coin-stage {
+  position: absolute;
+  top: 40%;
+  right: -75px;
+  width: 58px;
+  height: 58px;
+  perspective: 600px;
+  transform-style: preserve-3d;
+  z-index: 35;
+  pointer-events: none;
+}
+
+.gyro-coin-disc {
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  background: radial-gradient(circle at 35% 35%, #ffffff 0%, #a1a1aa 40%, #27272a 80%, #09090b 100%);
+  border: 1.5px solid rgba(255, 255, 255, 0.9);
+  box-shadow: 0 0 25px rgba(255, 255, 255, 0.35),
+              inset 0 0 10px rgba(255, 255, 255, 0.8);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transform-style: preserve-3d;
+  animation: coinSpin3D 14s linear infinite;
+}
+
+@keyframes coinSpin3D {
+  0% {
+    transform: rotateY(0deg) rotateX(25deg);
+  }
+  100% {
+    transform: rotateY(360deg) rotateX(25deg);
+  }
+}
+
+/* ==========================================================================
+   INTERACTIVE 3D FEATURE CARDS
+   ========================================================================== */
+
+.feature-card-3d {
+  background: linear-gradient(145deg, rgba(20, 20, 24, 0.85) 0%, rgba(12, 12, 14, 0.95) 100%);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 20px;
+  transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+  box-shadow: 0 10px 30px -10px rgba(0, 0, 0, 0.8);
+}
+
+.feature-card-3d:hover {
+  transform: translateY(-8px) scale(1.02);
+  border-color: rgba(255, 255, 255, 0.38);
+  box-shadow: 
+    0 25px 60px -15px rgba(0, 0, 0, 0.95),
+    0 0 35px rgba(255, 255, 255, 0.08),
+    inset 0 1px 1px rgba(255, 255, 255, 0.3);
+}
+
+/* Animated Border Glow Ribbon */
+.animated-glow-badge {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 6px 16px;
+  border-radius: 9999px;
+  background: #111114;
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  box-shadow: 0 0 20px rgba(255, 255, 255, 0.08);
+}
+
+.animated-glow-badge::before {
+  content: '';
+  position: absolute;
+  inset: -1px;
+  border-radius: 9999px;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.4), transparent);
+  mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  mask-composite: exclude;
+  -webkit-mask-composite: xor;
+  pointer-events: none;
+  animation: badgeBeam 3.5s linear infinite;
+}
+
+@keyframes badgeBeam {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}

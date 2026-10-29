@@ -1,0 +1,48 @@
+# Dependencies
+node_modules/
+*/node_modules/
+
+# Production build artifacts
+target/
+*/target/
+dist/
+*/dist/
+dist-ssr/
+*.jar
+*.war
+
+# Environment variable secrets (Keep .env.example safe, ignore real credentials)
+.env
+*.env
+!.env.example
+!*/.env.example
+*.env.local
+*.env.development.local
+*.env.test.local
+*.env.production.local
+
+# Logs
+logs/
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+
+# IDE & Editor files
+.idea/
+.vscode/
+*.iml
+*.iws
+*.ipr
+.project
+.classpath
+.settings/
+.factorypath
+.apt_generated/
+.sts4-cache/
+
+# OS specific files
+.DS_Store
+Thumbs.db
+desktop.ini
